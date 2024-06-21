@@ -1,0 +1,35 @@
+﻿    @*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model List<LibraryManagement.Web.Models.Entities.Member>
+
+<h1>Members</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">MemberID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var member  in Model)
+        {
+            <tr>
+                <td>@member.MemberID</td>
+                <td>@member.Name</td>
+                <td>@member.Address</td>
+                <td>@member.Phone</td>
+                <td>@(member.Status ? "Active" : "Inactive")</td>
+                <td>
+                    <a class="btn btn-primary" asp-controller="Member" asp-action="Edit" asp-route-id="@member.MemberID">Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
