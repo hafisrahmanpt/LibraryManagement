@@ -22,6 +22,7 @@ namespace LibraryManagement.Web.Controllers
             var mostAvailableGenreQuery = @"
                 SELECT TOP 1 Genre, COUNT(*) AS Count
                 FROM Books
+                where Availability = 'True'
                 GROUP BY Genre
                 ORDER BY Count DESC
             ";

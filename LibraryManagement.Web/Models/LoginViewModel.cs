@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace LibraryManagement.Web.Models.Entities
+namespace LibraryManagement.Web.Models
 {
     public class LoginViewModel
     {

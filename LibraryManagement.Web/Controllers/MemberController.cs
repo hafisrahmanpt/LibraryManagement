@@ -1,6 +1,7 @@
 ﻿using LibraryManagement.Web.Data;
 using LibraryManagement.Web.Models;
 using LibraryManagement.Web.Models.Entities;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
@@ -11,6 +12,7 @@ namespace LibraryManagement.Web.Controllers
 {
     public class MemberController : Controller
     {
+
         private readonly ApplicationDBContext dbContext;
 
         public MemberController(ApplicationDBContext dbContext)
@@ -40,6 +42,7 @@ namespace LibraryManagement.Web.Controllers
                     Email = viewModel.Email,
                     Password = viewModel.Password
                 };
+
                 await dbContext.Members.AddAsync(member);
                 await dbContext.SaveChangesAsync();
                 return RedirectToAction("List");
