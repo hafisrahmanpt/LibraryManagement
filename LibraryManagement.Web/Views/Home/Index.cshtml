@@ -3,7 +3,7 @@
 }
 
 @model LibraryManagement.Web.Models.AddMemberViewModel
-
+@* This is the view when the application starting up first.Added Member Login View Here *@
 <div class="container mt-5 text-center">
     <h1 class="display-4">Sign In</h1>
     <div class="row justify-content-center">
@@ -32,7 +32,7 @@
                     <button type="submit" class="btn btn-primary">Login</button>
                 </div>
             </form>
-
+            @* Link to redirect to Librarian Login Page *@
             <div class="mt-3">
                 <a href="/Home/LibrarianLogin" class="btn btn-link">Librarian Login</a>
             </div>

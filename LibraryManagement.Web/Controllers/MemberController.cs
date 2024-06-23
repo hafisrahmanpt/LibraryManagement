@@ -59,6 +59,7 @@ namespace LibraryManagement.Web.Controllers
             return View(members);
         }
 
+        //show selected member by id to edit
         [HttpGet]
         public async Task<IActionResult>Edit(Guid id)
         {
@@ -66,6 +67,7 @@ namespace LibraryManagement.Web.Controllers
             return View(member);
         }
 
+        //Edit and saving
         [HttpPost]
         public async Task<IActionResult>Edit(Member viewModel)
         {

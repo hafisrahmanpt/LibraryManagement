@@ -3,6 +3,7 @@
 }
 
 @model List<LibraryManagement.Web.Models.Entities.Book>
+@* This is the view For Member Dashboard.To see all the necessary for member *@
 
 <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
     <div class="container-fluid">
@@ -15,6 +16,7 @@
         </div>
     </div>
 </nav>
+@* Condition to Show Weather the Member is active or not. and show a message based on the status *@
 <div class="container mt-5">
 @if (ViewBag.IsMemberActive)
 {
@@ -30,7 +32,7 @@ else
             Please renew your subscription
     </div>
 }
-
+    @* Show the list of books *@
 <h2>All Books</h2>
 <table class="table">
     <thead>

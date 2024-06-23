@@ -19,6 +19,7 @@ namespace LibraryManagement.Web.Controllers
             _context = context;
         }
 
+        //Loads Sign In Page for member
         public IActionResult Index()
         {
             return View("Index");
@@ -88,7 +89,7 @@ namespace LibraryManagement.Web.Controllers
             return View();
         }
 
-        //Hardcoding the Librarian credentials here.
+        //Hardcoding the Librarian credentials here
         private const string LibrarianUserName = "Librarian321";
         private const string LibrarianPassword = "123456789";
         [HttpPost]
@@ -110,13 +111,13 @@ namespace LibraryManagement.Web.Controllers
                 var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                 var authProperties = new AuthenticationProperties
                 {
-                    IsPersistent = true // Set to false if you don't want the authentication to persist across sessions
+                    IsPersistent = true
                 };
 
                 // Sign in the user                
                 HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProperties);
-                // Debugging: Check authentication state
-                var isAuthenticated = User.Identity.IsAuthenticated; // Check if this evaluates to true after sign-in
+                
+                var isAuthenticated = User.Identity.IsAuthenticated;
 
                 // Redirect to the Dashboard List action after login
                 return RedirectToAction("List", "Dashboard");
@@ -126,6 +127,14 @@ namespace LibraryManagement.Web.Controllers
                 ViewBag.LoginError = "Invalid username or password";
                 return View();
             }
+        }
+
+        // Clear session data and make the navbar hidden
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            HttpContext.Session.Clear(); 
+            return RedirectToAction("Index", "Home"); 
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

@@ -1,0 +1,15 @@
+* Download Visual Studio 2022 (currently using),to run, debug and View the code.
+
+* Download the MSSQL server for setting up the database.
+
+
+Steps to run Application locally:
+_______________________________________
+
+* Open the file in Visual Studio.
+
+*Start the Application.you will be redirect to the member login page. just below can see the label "Librarian Login".click to 
+
+redirect to the Librarian login portal. Use   UserName: Librarian321
+                                              Password: 123456789
+
