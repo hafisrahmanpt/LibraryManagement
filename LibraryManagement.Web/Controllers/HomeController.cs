@@ -40,6 +40,9 @@ namespace LibraryManagement.Web.Controllers
                 // Set the member status in session
                 HttpContext.Session.SetString("IsMemberActive", member.Status.ToString());
 
+                //Set the member name in session
+                HttpContext.Session.SetString("MemberName", member.Name);
+
                 // Set the authentication cookie or claims
                 var claims = new List<Claim>
         {
@@ -79,6 +82,10 @@ namespace LibraryManagement.Web.Controllers
             {
                 ViewBag.IsMemberActive = false;
             }
+            
+            //Set memberName in Viewbag
+            var memberName = HttpContext.Session.GetString("MemberName");
+            ViewBag.MemberName = memberName;
 
             return View("MemberDashboard", booksList);
         }

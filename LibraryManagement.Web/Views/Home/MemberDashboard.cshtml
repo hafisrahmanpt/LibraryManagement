@@ -21,15 +21,21 @@
 @if (ViewBag.IsMemberActive)
 {
     <div class="alert alert-success" role="alert">
-        Your status: Active<br>
+            <div style="position: absolute; right: 10px;">
+                Your status: Active
+            </div>
+            Welcome @ViewBag.MemberName,<br/>
             Enjoy your reading journey!
     </div>
 }
 else
 {
     <div class="alert alert-danger" role="alert">
-            Your status: Inactive<br>
-            Please renew your subscription
+            <div style="position: absolute; right: 10px;">
+                Your status: Inactive
+            </div>
+            Welcome @ViewBag.MemberName,<br />
+            Please renew your subscription.
     </div>
 }
     @* Show the list of books *@
